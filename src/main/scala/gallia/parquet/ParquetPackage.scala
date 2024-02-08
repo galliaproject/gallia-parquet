@@ -21,8 +21,8 @@ package object parquet {
   type     Container = reflect.Container
   lazy val Container = reflect.Container
     
-  type     BasicType = reflect.BasicType
-  lazy val BasicType = reflect.BasicType  
+  type     BasicType = meta.basic.BasicType
+  lazy val BasicType = meta.basic.BasicType
   
   // ===========================================================================
   implicit class ParquetPath(path: String) {

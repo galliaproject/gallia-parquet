@@ -61,7 +61,7 @@ object ParquetGalliaIn {
   private def readGalliaPairDirectly(path: String): (Cls, CloseabledIterator[Obj]) =
     origin.ParquetIn
       .readParquetPairDirectly(path)
-      .mapFirst(parquet.schema.ParquetToGalliaSchema.directly)  
+      .pipe { x => parquet.schema.ParquetToGalliaSchema.directly(x._1) -> x._2 } // TODO: t240208133158 - why does .mapFirst failed for scala 3?
 
 }
 
